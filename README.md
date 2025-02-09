@@ -55,7 +55,19 @@ SELECT * FROM `de_zoomcamp_hw_3.yellow_tripdata_2024`
 __6. Write a query to retrieve the distinct VendorIDs between tpep_dropoff_datetime 2024-03-01 and 2024-03-15 (inclusive)  
 Use the materialized table you created earlier in your from clause and note the estimated bytes. Now change the table in the from clause to the partitioned table you created for question 5 and note the estimated bytes processed. What are these values?  
 Choose the answer which most closely matches.__
+```sql
+SELECT DISTINCT VendorID
+FROM `de_zoomcamp_hw_3.yellow_tripdata_2024`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15';
+
+SELECT DISTINCT VendorID
+FROM `de_zoomcamp_hw_3.yellow_tripdata_2024_optimized`
+WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15'
+```
+- `310.24 MB for non-partitioned table and 26.84 MB for the partitioned table`
 
 __7. Where is the data stored in the External Table you created?__
+- `GCP Bucket`
 
-__8. It is best practice in Big Query to always cluster your data:__
+__8. It is best practice in Big Query to always cluster your data?__
+- `False`
